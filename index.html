@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>É Fato ou Fake? — Reprodução Humana</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 700px; margin: auto; }
+    h1 { text-align: center; }
+    textarea { width: 100%; height: 120px; }
+    button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+    .resultado { margin-top: 20px; padding: 15px; border-radius: 8px; font-weight: bold; }
+    .fake { background-color: #ffdddd; color: #a10000; }
+    .fato { background-color: #ddffdd; color: #006400; }
+  </style>
+</head>
+<body>
+  <h1>É Fato ou Fake? — Reprodução Humana</h1>
+  <p>Cole abaixo uma frase sobre reprodução humana para verificar se é fato ou fake:</p>
+  
+  <textarea id="input"></textarea>
+  <button onclick="analisar()">Analisar</button>
+
+  <div id="resultado"></div>
+
+<script>
+  const baseFake = [
+    "coito interrompido previne gravidez",
+    "ducha vaginal evita gravidez",
+    "pílula do dia seguinte causa infertilidade",
+    "anticoncepcional causa câncer",
+    "mulher só engravida no dia da ovulação",
+    "camisinha estoura sempre",
+    "preservativo tem 100% de eficácia",
+    "mulher não engravida na primeira relação",
+    "chás abortam com segurança",
+    "sexo em pé evita gravidez",
+    "urinar após o sexo impede gravidez",
+    "lavar o pênis evita gravidez",
+    "camisinha reutilizável funciona",
+    "gravidez ocorre pelo ânus",
+    "DIU se perde dentro do corpo",
+    "DIU viaja pelo corpo",
+    "DIU causa aborto sempre",
+    "gravidez é impossível durante a amamentação",
+    "menstruação limpa o útero",
+    "quem toma anticoncepcional não ovula nunca",
+    "menina não engravida antes da menarca",
+    "esperma morre imediatamente no ar",
+    "testículo grande aumenta fertilidade",
+    "calcinhas apertadas causam infertilidade",
+    "maionese aumenta fertilidade",
+    "água com açúcar aumenta a chance de gravidez",
+    "tomar refrigerante diminui espermatozoides",
+    "vasectomia reduz libido",
+    "ligadura faz a mulher engordar",
+    "gravidez psicológica sempre produz beta positivo",
+    "endo é causada por usar absorvente interno",
+    "menina engravida com beijo",
+    "pênis pequeno não engravida",
+    "camisinha feminina prende o pênis",
+    "quem tem SOP nunca engravida",
+    "endo impede totalmente a gravidez",
+    "mulher com útero retrovertido não engravida",
+    "o óvulo escolhe espermatozoide pelo signo",
+    "testículo só produz esperma no frio",
+    "espermatozoide vive uma semana na mão",
+    "sexo durante a menstruação não engravida",
+    "ciclos irregulares impedem gravidez",
+    "pílula do dia seguinte substitui anticoncepcional",
+    "camisinha causa infertilidade",
+    "camisinha tem hormônio",
+    "gravidez só ocorre se houver orgasmo feminino",
+    "anticoncepcional acumula sangue no útero",
+    "método tabelinha é infalível",
+    "gravidez é impossível após os 40",
+    "quem menstrua não está grávida sempre"
+  ];
+
+  const explicacoes = {
+    "coito interrompido previne gravidez": "Fake: há escape de espermatozoides antes da ejaculação.",
+    "ducha vaginal evita gravidez": "Fake: duchas não impedem que espermatozoides alcancem o colo uterino.",
+    "pílula do dia seguinte causa infertilidade": "Fake: não causa infertilidade; é apenas emergencial.",
+    // (explicações abreviadas para manter o arquivo limpo)
+  };
+
+  function analisar() {
+    const texto = document.getElementById("input").value.toLowerCase();
+    const resultado = document.getElementById("resultado");
+
+    const achado = baseFake.find(f => texto.includes(f));
+
+    if (achado) {
+      resultado.className = "resultado fake";
+      resultado.innerText = "FAKE: " + (explicacoes[achado] || "Essa afirmação não tem base científica.");
+      return;
+    }
+
+    resultado.className = "resultado fato";
+    resultado.innerText = "FATO ou Não Encontrado: Não identificamos essa frase como fake conhecida no banco de dados.";
+  }
+</script>
+
+</body>
+</html>
